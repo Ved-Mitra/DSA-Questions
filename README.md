@@ -1,18 +1,18 @@
-🚀 Data Structures & Algorithms Practice
+# 🚀 Data Structures & Algorithms Practice
 Welcome to my personal collection of Data Structures and Algorithms (DSA) problems and solutions! 🧑‍💻 This repository serves as a log of my journey through various coding challenges from platforms like LeetCode, HackerRank, and others. The primary goal is to practice, learn, and solidify my understanding of core computer science concepts.
 
-📚 Table of Contents
-About This Repository
+# 📚 Table of Contents
+[About This Repository](#-about-this-repository)
 
-Directory Structure
+[Directory Structure](#-directory-structure)
 
-Topics Covered
+[Topics Covered](#-topics-covered)
 
-How to Contribute
+[How to Contribute](#-how-to-contribute)
 
-License
+[License](#-license)
 
-🎯 About This Repository
+# 🎯 About This Repository
 This repository contains solutions to a variety of DSA problems, implemented primarily in [Your Primary Language, e.g., C++, Python, JavaScript]. Each solution is accompanied by a clear problem statement and, where necessary, comments explaining the logic and complexity analysis.
 
 My approach is to:
@@ -25,7 +25,7 @@ Understand the time and space complexity of each algorithm.
 
 Explore multiple approaches to solving the same problem.
 
-📁 Directory Structure
+# 📁 Directory Structure
 The repository is organized by data structure or algorithmic concept to make it easy to navigate and find specific problems.
 
 /
@@ -47,7 +47,8 @@ The repository is organized by data structure or algorithmic concept to make it 
 ├── DynamicProgramming
 │   └── ...
 └── README.md
-✨ Topics Covered
+
+# ✨ Topics Covered
 This repository includes problems spanning a wide range of topics.
 
 Data Structures
@@ -80,7 +81,7 @@ Bit Manipulation
 
 Two Pointers & Sliding Window
 
-🤝 How to Contribute
+# 🤝 How to Contribute
 Contributions are welcome! If you have a suggestion, a new solution, or an optimization for an existing one, please feel free to do the following:
 
 Fork the repository.
@@ -95,5 +96,5 @@ Open a Pull Request.
 
 Please ensure your code is well-commented and follows the existing structure of the repository.
 
-📄 License
+# 📄 License
 This project is licensed under the MIT License - see the LICENSE.md file for details.

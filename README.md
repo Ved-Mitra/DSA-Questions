@@ -51,35 +51,23 @@ The repository is organized by data structure or algorithmic concept to make it 
 # ✨ Topics Covered
 This repository includes problems spanning a wide range of topics.
 
-Data Structures
-Arrays & Strings
+Data Structures:
+1. Arrays & Strings
+2. Linked Lists (Singly, Doubly, Circular)
+3. Stacks & Queues
+4. Hash Tables (Hash Maps, Hash Sets)
+5. Trees (Binary Trees, BSTs, Tries, Heaps)
+6. Graphs (Adjacency List, Adjacency Matrix)
 
-Linked Lists (Singly, Doubly, Circular)
-
-Stacks & Queues
-
-Hash Tables (Hash Maps, Hash Sets)
-
-Trees (Binary Trees, BSTs, Tries, Heaps)
-
-Graphs (Adjacency List, Adjacency Matrix)
-
-Algorithms
-Sorting & Searching (Merge Sort, Quick Sort, Binary Search)
-
-Recursion & Backtracking
-
-Dynamic Programming
-
-Graph Traversal (BFS, DFS)
-
-Greedy Algorithms
-
-Divide and Conquer
-
-Bit Manipulation
-
-Two Pointers & Sliding Window
+Algorithms:
+1. Sorting & Searching (Merge Sort, Quick Sort, Binary Search)
+2. Recursion & Backtracking
+3. Dynamic Programming
+4. Graph Traversal (BFS, DFS)
+5. Greedy Algorithms
+6. Divide and Conquer
+7. Bit Manipulation
+8. Two Pointers & Sliding Window
 
 # 🤝 How to Contribute
 Contributions are welcome! If you have a suggestion, a new solution, or an optimization for an existing one, please feel free to do the following:

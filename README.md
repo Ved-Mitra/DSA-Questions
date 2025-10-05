@@ -74,14 +74,13 @@ Contributions are welcome! If you have a suggestion, a new solution, or an optim
 
 Fork the repository.
 
-Create a new branch (git checkout -b feature/YourAmazingFeature).
+Create a new branch $(git checkout -b feature/YourAmazingFeature).$
 
-Commit your changes (git commit -m 'Add some YourAmazingFeature').
+Commit your changes $(git commit -m 'Add some YourAmazingFeature').$
 
-Push to the branch (git push origin feature/YourAmazingFeature).
+Push to the branch $(git push origin feature/YourAmazingFeature).$
 
 Open a Pull Request.
-
 Please ensure your code is well-commented and follows the existing structure of the repository.
 
 # 📄 License

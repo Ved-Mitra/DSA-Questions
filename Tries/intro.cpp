@@ -5,6 +5,13 @@ struct Node
 {
     Node* links[26];
     bool flag=false;
+
+    Node()
+    {
+        for(int i=0;i<26;i++)
+            links[i]=nullptr;
+    }
+
     bool containsKey(char ch)
     {
         return (links[ch-'a']!=NULL);
@@ -29,6 +36,19 @@ struct Node
     {
         return flag;
     }
+
+    void setNull(char ch)
+    {
+        links[ch-'a']=nullptr;
+    }
+
+    bool isEmpty()
+    {
+        for(int i=0;i<26;i++)
+            if(links[i]!=nullptr)
+                return false;
+        return true;
+    }
 };
 
 
@@ -36,6 +56,35 @@ class Trie
 {
 private:
     Node* root;
+
+    Node* removeHelper(Node* node,string word,int depth)
+    {
+        if(!node)
+            return nullptr;
+        if(depth=word.size())
+        {
+            if(node->isEnd())
+                node->flag=false;
+        
+            if(node->isEmpty())
+            {
+                delete node;
+                node=nullptr;
+            }
+            return node;
+        }
+
+        int index=word[depth]-'a';
+        node->links[index]=removeHelper(node->links[index],word,depth+1);
+
+        if(node->isEmpty() && !node->isEnd())
+        {
+            delete node;
+            node=nullptr;
+        }
+
+        return node;
+    }
 public:
     Trie()
     {
@@ -46,8 +95,6 @@ public:
     {
         //O(len)
         Node* node=root;
-        if(root==nullptr)
-            return;
         for(int i=0;i<word.size();i++)
         {
             if(!node->containsKey(word[i]))
@@ -84,6 +131,25 @@ public:
             node=node->get(prefix[i]);
         }
         return true;
+    }
+
+    void remove(string word)
+    {
+        Node* node=root;
+        vector<Node*> list;
+        for(int i=0;i<word.size();i++)
+        {
+            list.push_back(node);
+            Node* ptr=node->get(word[i]);
+            node=ptr;
+        }
+        list.push_back(node);
+        for(int i=list.size()-1;i>=0;i--)
+        {
+            Node* ptr=list[i];
+            if(ptr->isEmpty())
+                delete ptr;
+        }
     }
 };
 

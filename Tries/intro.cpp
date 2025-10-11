@@ -135,21 +135,7 @@ public:
 
     void remove(string word)
     {
-        Node* node=root;
-        vector<Node*> list;
-        for(int i=0;i<word.size();i++)
-        {
-            list.push_back(node);
-            Node* ptr=node->get(word[i]);
-            node=ptr;
-        }
-        list.push_back(node);
-        for(int i=list.size()-1;i>=0;i--)
-        {
-            Node* ptr=list[i];
-            if(ptr->isEmpty())
-                delete ptr;
-        }
+        root=removeHelper(root,word,0);
     }
 };
 

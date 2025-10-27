@@ -56,6 +56,8 @@ vector<vector<int>> BFS()
 
 vector<int> DFS()
 {
+    //TC-O(degree=2*e)
+    //SC-O(3n)
     //depth first search
     //we will get the starting node
     int n,m;

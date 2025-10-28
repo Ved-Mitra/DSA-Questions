@@ -68,8 +68,7 @@ void dfs(int row, int col, vector<vector<int>> &ans,vector<vector<int>> &image, 
 
         // The condition 'ans[nrow][ncol] != newColor' is a logical completion
         // of the partially visible line in the image.
-        if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m &&
-            image[nrow][ncol] == iniColor && ans[nrow][ncol] != newColor)
+        if (nrow >= 0 && nrow < n && ncol >= 0 && ncol < m && image[nrow][ncol] == iniColor && ans[nrow][ncol] != newColor)
         {
             dfs(nrow, ncol, ans, image, newColor, delRow, delCol, iniColor);
         }
@@ -92,5 +91,5 @@ vector<vector<int>> floodFill(vector<vector<int>> &image,int sr, int sc, int new
 
 int main()
 {
-    
+
 }

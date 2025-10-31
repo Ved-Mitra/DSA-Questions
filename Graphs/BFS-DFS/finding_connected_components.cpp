@@ -2,11 +2,11 @@
 using namespace std;
 
 
-void BFS(vector<vector<int>> &adjList,int i,vector<bool> &visited)
+void BFS(vector<vector<int>> &adjList,int i,vector<int> &visited,int componentNumber)
 {
     queue<int> q;
     q.push(i);
-    visited[i]=true;
+    visited[i]=componentNumber;
     while(!q.empty())
     {
         int node=q.front();
@@ -16,7 +16,7 @@ void BFS(vector<vector<int>> &adjList,int i,vector<bool> &visited)
             if(!visited[x])
             {
                 q.push(x);
-                visited[x]=true;
+                visited[x]=componentNumber;
             }
         }
     }
@@ -25,12 +25,12 @@ void BFS(vector<vector<int>> &adjList,int i,vector<bool> &visited)
 int find_number_of_components(vector<vector<int>> &adjList,int n)
 {
     int m=adjList.size();
-    vector<bool> visited(n+1,false);
-    int cnt=0;
-    for(int i=1;i<=n;i++)
-        if(!visited[i])
+    vector<int> visited(n,-1);
+    int cnt=1;
+    for(int i=0;i<n;i++)
+        if(visited[i]==-1)
         {
-            BFS(adjList,i,visited);
+            BFS(adjList,i,visited,cnt);
             cnt++;
         }
     return cnt;

@@ -22,7 +22,7 @@ void BFS(vector<vector<int>> &adjList,int i,vector<int> &visited,int componentNu
     }
 }
 
-int find_number_of_components(vector<vector<int>> &adjList,int n)
+vector<int> find_number_of_components(vector<vector<int>> &adjList,int n)
 {
     int m=adjList.size();
     vector<int> visited(n,-1);
@@ -33,7 +33,7 @@ int find_number_of_components(vector<vector<int>> &adjList,int n)
             BFS(adjList,i,visited,cnt);
             cnt++;
         }
-    return cnt;
+    return visited;
 }
 
 

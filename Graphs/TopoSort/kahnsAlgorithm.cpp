@@ -23,9 +23,9 @@ vector<int> TopoSort_BFS(vector<vector<int>> &adjList)
         ans.push_back(node);
         for(int &x:adjList[node])
         {
-            inDegree[adjList[node][x]]--;
-            if(inDegree[adjList[node][x]]==0)
-                q.push(adjList[node][x]);
+            inDegree[x]--;
+            if(inDegree[x]==0)
+                q.push(x);
         }
     }
     return ans;

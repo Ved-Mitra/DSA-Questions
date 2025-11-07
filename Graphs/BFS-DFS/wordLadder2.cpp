@@ -90,11 +90,13 @@ void BFSHelper(unordered_map<string,int> &distMap,string &beginWord,string &endW
         }
     }
 }
-void DFSHelper(unordered_map<string,int> &distMap,string str,vector<vector<string>> &ans,vector<string> &strVec,string &endWord)
+void DFSHelper(unordered_map<string,int> &distMap,string str,vector<vector<string>> &ans,vector<string> &strVec)
 {
-    if(str==endWord)
+    if(distMap[str]==0)
     {
-        ans.push_back(strVec);
+        vector<string> vec=strVec;
+        reverse(vec.begin(),vec.end());
+        ans.push_back(vec);
         return;
     }
     int d=distMap[str];
@@ -104,10 +106,10 @@ void DFSHelper(unordered_map<string,int> &distMap,string str,vector<vector<strin
         for(char ch='a';ch<='z';ch++)
         {
             str[i]=ch;
-            if(distMap.find(str)!=distMap.end() && distMap[str]==d+1)
+            if(distMap.find(str)!=distMap.end() && distMap[str]==d-1)
             {
                 strVec.push_back(str);
-                DFSHelper(distMap,str,ans,strVec,endWord);
+                DFSHelper(distMap,str,ans,strVec);
                 strVec.pop_back();
             }
         }
@@ -124,8 +126,9 @@ vector<vector<string>> findLadders(string beginWord, string endWord, vector<stri
         return ans;
     BFSHelper(distMap,beginWord,endWord);
     vector<string>strVec;
-    strVec.push_back(beginWord);
-    DFSHelper(distMap,beginWord,ans,strVec,endWord);
+    strVec.push_back(endWord);
+    //we start from end to avoid exploration of incorrect path
+    DFSHelper(distMap,endWord,ans,strVec);
     return ans;
 }
 

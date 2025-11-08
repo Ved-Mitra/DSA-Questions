@@ -20,7 +20,10 @@ vector<int> DijktraAlgorithm_Set(vector<vector<pair<int,int>>> &adjList,int src)
             if(dist[x]>d+dNode)
             {
                 if(dist[x]!=INT_MAX)
+                {
                     auto it=st.find({dist[x],x});
+                    st.erase(it);
+                }
                 dist[x]=d+dNode;
                 st.insert({dist[x],x});
             }

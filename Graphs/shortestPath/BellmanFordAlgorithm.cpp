@@ -9,6 +9,7 @@ vector<int> BellmanFord(vector<vector<int>> &edges,int n,int src)
     //TC - O(V*E)
     //SC - O(V)
     vector<int> dist(n,INT_MAX);
+    dist[src]=0;
     //relax all the edges n-1 times sequentially
     /*meaning of relax
     if dist[u]+edgeweight<dist[v]

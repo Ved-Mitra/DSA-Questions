@@ -17,7 +17,8 @@ vector<int> FloydWarshall(vector<vector<int>> &edges,int n,int u)
     for(int via=0;via<n;via++)
         for(int i=0;i<n;i++)
             for(int j=0;j<n;j++)
-                cost[i][j]=min(cost[i][j],cost[i][via]+cost[via][j]);
+                if(cost[i][via]!=INT_MAX && cost[via][j]!=INT_MAX)
+                    cost[i][j]=min(cost[i][j],cost[i][via]+cost[via][j]);
 
     //to detect negative cycle
     for(int i=0;i<n;i++)

@@ -50,7 +50,7 @@ int numberOfProvinces(vector<vector<int>> &adjMat)
     int cnt=0;
     for(int i=0;i<n;i++)
         for(int j=0;j<n;j++)
-            if(adjMat[i][j]==1 && ds.findParent(i)!=ds.findParent(j))
+            if(adjMat[i][j]==1)
                 ds.unionBySize(i,j);
     
     //now just calculate the number of ultimate bosses

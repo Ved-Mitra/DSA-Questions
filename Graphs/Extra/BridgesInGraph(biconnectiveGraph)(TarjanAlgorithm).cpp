@@ -23,6 +23,8 @@ void DFS(vector<vector<int>> &adjList,int node,int &time,vector<vector<int>> &an
 
 vector<vector<int>> criticalConnections(int n, vector<vector<int>>& connections)
 {
+    //TC -O (V+ 2E)
+    //SC - O (3n)
     vector<vector<int>> adjList(n);
     for(int i=0;i<connections.size();i++)
     {

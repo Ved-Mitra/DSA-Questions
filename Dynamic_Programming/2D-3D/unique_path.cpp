@@ -45,15 +45,23 @@ int uniquePaths_SC(int m,int n)
 {
     //TC-O(m*n)
     //SC-O(m+n)
-    vector<int> prevRow(n,-1);
+    vector<int> prevRow(n,0);
     for(int i=0;i<m;i++)
     {
         vector<int> temp(n,0);
         for(int j=0;j<n;j++)
         {
-            temp[j]=prevRow[j];
-            if(j>0)
-                temp[j]+=temp[j-1];
+            if(i==0 && j==0)
+            {
+                prevRow[0]=1;
+                temp[0]=1;
+            }
+            else
+            {
+                temp[j]=prevRow[j];
+                if(j>0)
+                    temp[j]+=temp[j-1];
+            }
         }
         prevRow=temp;
     }

@@ -16,7 +16,8 @@ int meritPoints_Memoization(vector<vector<int>> &points,int day,vector<vector<in
             if(task!=last)
                 maxi=max(maxi,points[0][task]);
         }
-        return maxi;
+        dp[0][last] = maxi; // store base case
+        return dp[0][last];
     }
 
     if(dp[day][last]!=-1)
@@ -31,7 +32,8 @@ int meritPoints_Memoization(vector<vector<int>> &points,int day,vector<vector<in
             maxi=max(maxi,point);
         }
     }
-    return maxi;
+    dp[day][last] = maxi; // store computed value
+    return dp[day][last];
 }
 
 int meritPointsTabulation(vector<vector<int>> &points)
@@ -79,7 +81,8 @@ int meritPoints_SC(vector<vector<int>> &points)
                 if(task!=last)
                 {
                     int point=points[day][task]+pt[task];
-                    temp[task]=max(temp[last],point);
+                    // update temp for this 'last'
+                    temp[last]=max(temp[last],point);
                 }
             }
         }

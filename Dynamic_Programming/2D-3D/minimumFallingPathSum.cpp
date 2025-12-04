@@ -57,12 +57,11 @@ int minimumFallingPathSum_Tabulation(vector<vector<int>> &mat)
 int minimumFallingPathSum_SC(vector<vector<int>> &mat)
 {
     int n=mat.size();
-    vector<int> dp(n,-1);
+    vector<int> dp(n,-1),temp(n);
     for(int i=0;i<n;i++)
         dp[i]=mat[n-1][i];
     for(int i=n-2;i>=0;i--)
     {
-        vector<int> temp(n);
         for(int j=0;j<n;j++)
         {
             int down,diagonalLeft=1e9,diagonalRight=1e9;

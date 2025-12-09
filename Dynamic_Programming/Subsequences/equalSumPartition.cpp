@@ -30,7 +30,10 @@ bool canPartition_T(vector<int> &arr)
     //TC-O(N*target)
     //SC-O(N*target)
     int n=arr.size();
-    int k=accumulate(arr.begin(),arr.end(),0)/2;
+    int k=accumulate(arr.begin(),arr.end(),0);
+    if(k%2==1)
+        return false;
+    k/=2;
     vector<vector<bool>> dp(n,vector<bool>(k+1,false));
 
     //base condition
@@ -58,7 +61,10 @@ bool canPartition_SC(vector<int> &arr)
     //TC-O(N*target)
     //SC-O(target)
     int n=arr.size();
-    int k=accumulate(arr.begin(),arr.end(),0)/2;
+    int k=accumulate(arr.begin(),arr.end(),0);
+    if(k%2==1)
+        return false;
+    k/=2;
     vector<int> dp(k+1,false),curr(k+1,false);
 
     //base step

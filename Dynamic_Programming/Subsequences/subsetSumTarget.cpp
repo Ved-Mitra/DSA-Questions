@@ -60,7 +60,8 @@ bool subsetSumK_SC(vector<int> &arr,int k)
 
     //base step
     dp[0]=true;
-    dp[arr[0]]=true;
+    if(arr[0]<=k)
+        dp[arr[0]]=true;
     for(int i=1;i<n;i++)
     {
         curr[0]=true;

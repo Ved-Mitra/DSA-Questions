@@ -60,9 +60,11 @@ int cntParitionDiffK_Tabulation(vector<int> &nums,int d)
     vector<vector<int>> dp(n,vector<int>(k+1,-1));
 
     //base condition
-    for(int i=0;i<n;i++)
-        dp[i][0]=1;
-    if(k>=nums[0])
+    if(nums[0]==0)
+        dp[0][0]=2;
+    else
+        dp[0][0]=1;
+    if(k>=nums[0] && nums[0]!=0)
         dp[0][nums[0]]=1;
 
     for(int i=1;i<n;i++)
@@ -91,12 +93,16 @@ int cntParitionDiffK_SC(vector<int> &nums,int d)
     vector<int> prev(k+1,-1),curr(k+1,-1);
 
     //base condition
-    prev[0]=1;
-    if(k>=nums[0])
+    if(nums[0]==0)
+        prev[0]=2;
+    else
+        prev[0]=1;
+    if(k>=nums[0] && nums[0]!=0)
         prev[nums[0]]=1;
 
     for(int i=1;i<n;i++)
     {
+        curr[0]=1;
         for(int target=1;target<=k;target++)
         {
             int take=prev[target];

@@ -1,12 +1,30 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+//if nums includes 0 then copute the number of zeroes
+//let zeroes be n and number of subset with sum k =m
+//total answer= (2^n)*m
+
+
 int cntSubsetSumK_Memoization(vector<int> &nums,vector<vector<int>> &dp,int k,int i)
 {
-    if(k==0)
-        return 1;
+    //if no zeroes in array
+    // if(k==0)
+    //     return 1;
+    // if(i==0)
+    //     return nums[0]==k;
+
+    //to account for zeroes
     if(i==0)
-        return nums[0]==k;
+    {
+        if(k==0 && nums[0]==0)
+            return 2;
+        if(k==0 || nums[0]==0)
+            return 1;
+        return 0;
+    }
+
+
     if(dp[i][k]!=-1)
         return dp[i][k];
     

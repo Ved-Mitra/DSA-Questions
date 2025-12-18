@@ -19,7 +19,7 @@ int cntSubsetSumK_Memoization(vector<int> &nums,vector<vector<int>> &dp,int k,in
     {
         if(k==0 && nums[0]==0)
             return 2;
-        if(k==0 || nums[0]==0)
+        if(k==0 || nums[0]==k)
             return 1;
         return 0;
     }

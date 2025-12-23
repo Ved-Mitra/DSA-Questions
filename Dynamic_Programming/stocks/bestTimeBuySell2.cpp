@@ -3,6 +3,8 @@ using namespace std;
 
 int maxProfit_Memoization(vector<int> &prices,int i,bool buy,vector<vector<int>> &dp,int n)
 {
+    //vector<vector<int>> dp(n,vector<int>(2,0));
+    //start with buy=true
     if(i==n)
         return 0;
 

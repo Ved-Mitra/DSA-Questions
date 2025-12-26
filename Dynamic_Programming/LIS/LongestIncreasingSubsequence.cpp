@@ -23,6 +23,8 @@ int lengthOfLIS_Memoization(vector<int> &nums,int i,int prev_index,vector<vector
 
 int lengthOfLIS_Tabulation(vector<int> &nums)
 {
+    //TC-O(N*N)
+    //SC-O(N*N)
     int n=nums.size();
     vector<vector<int>> dp(n+1,vector<int>(n+1,0));
 
@@ -80,6 +82,30 @@ int lengthOfLIS_OPTIMIZED(vector<int> &nums)
     return maxi;
 }
 
+
+int lengthofLIS_BinarySearch(vector<int> &nums)
+{
+    //TC-O(n*log N)
+    //SC-O(N)
+    int n=nums.size();
+    vector<int> temp;
+    int len=1;
+    temp.push_back(nums[0]);
+    for(int i=1;i<n;i++)
+    {
+        if(nums[i]>temp.back())
+        {
+            temp.push_back(nums[i]);
+            len++;
+        }
+        else
+        {
+            auto index=lower_bound(temp.begin(),temp.end(),nums[i]);
+            *index=nums[i];
+        }
+    }
+    return len;
+}
 
 int main()
 {

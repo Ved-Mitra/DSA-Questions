@@ -61,6 +61,26 @@ int lengthOfLIS_SC(vector<int> &nums)
 }
 
 
+int lengthOfLIS_OPTIMIZED(vector<int> &nums)
+{
+    //TC-O(N^2)
+    //dp[i] signifies --> the longest subsequence that ends at index i
+    int n=nums.size();
+    vector<int> dp(n,1);
+
+    int maxi=1;
+    for(int i=0;i<n;i++)
+    {
+        for(int prev=0;prev<i;prev++)
+            if(nums[prev]<nums[i])
+                dp[i]=max(dp[prev]+1,dp[i]);
+        
+        maxi=max(maxi,dp[i]);
+    }
+    return maxi;
+}
+
+
 int main()
 {
 

@@ -95,6 +95,7 @@ vector<int> printLIS(vector<int> nums)
         ans[index--]=nums[lastIndex];
         lastIndex=hash[lastIndex];
     }
+    ans.push_back(nums[lastIndex]);
     return ans;
 }
 

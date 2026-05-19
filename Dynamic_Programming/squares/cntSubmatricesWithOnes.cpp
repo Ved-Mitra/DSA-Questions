@@ -23,7 +23,10 @@ int countSquares(vector<vector<int>> &matrix)
     {
         for(int j=1;j<n;j++)
         {
-            dp[i][j]=min(dp[i-1][j-1],min(dp[i-1][j],dp[i][j-1]))+1;
+            if(matrix[i][j]==0)
+                dp[i][j]=0;
+            else
+                dp[i][j]=min(dp[i-1][j-1],min(dp[i-1][j],dp[i][j-1]))+1;
         }
     }
     int cnt=0;

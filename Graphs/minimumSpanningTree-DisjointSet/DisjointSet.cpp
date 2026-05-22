@@ -38,7 +38,7 @@ class DisjointSet//union by rank
     {
         int ultimateParent_u=findParent(u);
         int ultimateParent_v=findParent(v);
-        if(ultimateParent_u=ultimateParent_v)
+        if(ultimateParent_u==ultimateParent_v)
             return;
         if(rank[ultimateParent_u]>rank[ultimateParent_v])
             parent[ultimateParent_v]=ultimateParent_u;
@@ -78,9 +78,7 @@ class DisjointSet//union by size
     {
         int ultimateParent_u=findParent(u);
         int ultimateParent_v=findParent(v);
-        if(ultimateParent_u=ultimateParent_v)
-            return;
-        if(ultimateParent_u=ultimateParent_v)
+        if(ultimateParent_u==ultimateParent_v)
             return;
         if(size[ultimateParent_u]<size[ultimateParent_v])
         {

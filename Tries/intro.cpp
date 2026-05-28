@@ -61,7 +61,7 @@ private:
     {
         if(!node)
             return nullptr;
-        if(depth=word.size())
+        if(depth==word.size())
         {
             if(node->isEnd())
                 node->flag=false;

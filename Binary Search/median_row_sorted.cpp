@@ -25,7 +25,7 @@ int main()
         for(int j=0;j<n2;j++)
             cin >> nums[i][j];
 
-    int low=INT_MIN,high=INT_MAX;
+    int low=INT_MAX,high=INT_MIN;
     for(int i=0;i<n1;i++)
     {
         low=min(low,nums[i][0]);

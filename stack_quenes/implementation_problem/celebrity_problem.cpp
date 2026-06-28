@@ -74,7 +74,7 @@ int celebrity(vector<vector<int>> person)
             down--;
         else
         {
-            top--;
+            top++;
             down--;
         }
     }

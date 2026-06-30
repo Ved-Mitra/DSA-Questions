@@ -24,6 +24,52 @@ hash(i, j) = (d * (hash(i−1, j−1) − s[i−1] * d(m−1) )+ s[j]) mod q
 
 */
 
+int BASE= 10000000;
+int repeatedStringMatch(string a, string b) {
+    int n=a.size(),m=b.size();
+    int hash=0,p=1e9 + 7;
+    string s=a;
+    int cnt=1;
+    while(s.size()<b.size()){
+        cnt++;
+        s+=a;
+    }
+    if(s==b) return cnt;
+    if(Rabin_Karp(s,b)!=-1) return cnt;
+    if(Rabin_Karp(s+a,b)!=-1) return cnt+1;
+    return -1;
+}
+int Rabin_Karp(string source,string target){
+    int m=target.size();
+    if(source=="" || target=="") return -1;
+    int power=1;
+    for(int i=0;i<m;i++){
+        power=(power*31)%BASE;
+    }
+    int targetCode=0;
+    for(int i=0;i<m;i++){
+        targetCode=(targetCode*31 + target[i])%BASE;
+    }
+    int hashCode=0;
+    int n=source.size();
+    for(int i=0;i<n;i++){
+        hashCode=(hashCode*31 + source[i])%BASE;
+        if(i<m-1)
+            continue;
+        if(i>=m){
+            hashCode = (hashCode - source[i-m]*power)%BASE;
+        }
+        if(hashCode<0){
+            hashCode+=BASE;
+        }
+        if(hashCode==targetCode){
+            if(source.substr(i-m+1,m)==target){
+                return i-m+1;
+            }
+        }
+    }
+    return -1;
+}
 
 int main()
 {

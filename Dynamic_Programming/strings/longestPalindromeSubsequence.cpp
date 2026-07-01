@@ -11,9 +11,6 @@ int longestPalindromeSubsequence(string s)
     //use text1 and text2 from here to call longestCommonSubsequence problem
 }
 
-#include <bits/stdc++.h>
-using namespace std;
-
 //brute generate all subsequences and compare them
 
 int longestCommonSubsequence_Memoization(string text1, string text2,int i,int j,vector<vector<int>> &dp)

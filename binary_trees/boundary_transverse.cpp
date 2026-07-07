@@ -53,18 +53,18 @@ void addLeaf(TreeNode* root,vector<int> &ans)
 //3. Right boundary excluding leaf nodes
 void addRightBoundary(TreeNode* root,vector<int> &ans)
 {
-    TreeNode* curr=root;
+    TreeNode* curr=root->right;
     vector<int> temp;
     while(curr)
     {
         if(!isLeaf(curr))
-            ans.push_back(curr->data);
+            temp.push_back(curr->data);
         if(curr->right)
             curr=curr->right;
         else
             curr=curr->left;
     }
-    for(int i=temp.size();i>=0;i--)
+    for(int i=temp.size()-1;i>=0;i--)
         ans.push_back(temp[i]);
 }
 

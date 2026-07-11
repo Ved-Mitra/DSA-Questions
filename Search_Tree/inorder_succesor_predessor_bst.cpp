@@ -22,7 +22,7 @@ TreeNode* inorderSuccessor(TreeNode* root,TreeNode* node)
     TreeNode* successor=NULL;
     while(root!=NULL)
     {
-        if(node->data>root->data)
+        if(node->data>=root->data)
             root=root->right;
         else
         {
@@ -32,12 +32,12 @@ TreeNode* inorderSuccessor(TreeNode* root,TreeNode* node)
     }
     return successor;
 }
-TreeNode* inorderpredecessor(TreeNode* root,TreeNode* node)
+TreeNode* inorderPredecessor(TreeNode* root,TreeNode* node)
 {
     TreeNode* predecessor=NULL;
     while(root!=NULL)
     {
-        if(root->data>node->data)
+        if(root->data>=node->data)
             root=root->left;
         else
         {

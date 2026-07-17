@@ -1,11 +1,11 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-bool BFS(vector<vector<int>> &adjList,int n,vector<bool> &visited,int i)
+bool BFS(vector<vector<int>> &adjList,vector<bool> &visited,int node)
 {
     queue<pair<int,int>> q;//parent-child
-    q.push({i,i});
-    visited[i]=true;
+    q.push({-1,node});
+    visited[node]=true;
     while(!q.empty())
     {
         int l=q.size();
@@ -29,11 +29,15 @@ bool BFS(vector<vector<int>> &adjList,int n,vector<bool> &visited,int i)
 }
 bool detectCycle_in_UndirectedGraph_BFS(vector<vector<int>> &adjList,int n)
 {
-    vector<bool> visited(n+1,false);
-    for(int i=1;i<=n;i++)
-        if(!visited[i])
-            if(BFS(adjList,n,visited,i))
+    vector<bool> visited(n,false);
+    for(int i=0;i<n;i++){
+        if(!visited[i]){
+            if(BFS(adjList,visited,i)){
                 return true;
+            }
+        }
+    }
+    return false;
 }
 
 

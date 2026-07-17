@@ -8,11 +8,11 @@ bool DFS(vector<vector<int>> &adjList,int node,vector<bool> &visited,vector<bool
     pathVisted[node]=true;
     for(int &x:adjList[node])
     {
+        if(visited[x] && pathVisted[x])
+                return true;
         if(!visited[x])
             if(DFS(adjList,x,visited,pathVisted))
                 return true;
-        if(visited[x] && pathVisted[x])
-            return true;
     }
     pathVisted[node]=false;
     return false;

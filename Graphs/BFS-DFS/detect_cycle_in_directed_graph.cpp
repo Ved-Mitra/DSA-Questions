@@ -30,6 +30,35 @@ bool detectCycleInDirectedGraph(vector<vector<int>> &adjList)
     return false;
 }
 
+bool detectCycleInDirectedGraph_BFS(vector<vector<int>> &adjList){
+    int n=adjList.size();
+    vector<int> in_degree(n);
+    for(int i=0;i<n;i++){
+        for(int j=0;j<adjList[i].size();j++){
+            in_degree[adjList[i][j]]++;
+        }
+    }
+    queue<int>q;
+    for(int i=0;i<n;i++){
+        if(in_degree[i]==0){
+            q.push(i);
+        }
+    }
+    int visited=0;
+    while(!q.empty()){
+        int node=q.front();
+        q.pop();
+        visited++;
+        for(int x:adjList[node]){
+            in_degree[x]--;
+            if(in_degree[x]==0){
+                q.push(x);
+            }
+        }
+    }
+    return visited!=n;
+}
+
 
 int main()
 {
